@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Formulario para registro de estudiantes">
+  <meta name="author" content="">
+
+  <title>Registro de Estudiante | ScholarSync</title>
+
+  <!-- Custom fonts -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles -->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+  <!-- Estilos personalizados -->
+  <style>
+    .bg-register-image {
+      background: url('img/estudiante.jpg') center center no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+    .bg-register-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(78, 115, 223, 0.5);
+    }
+    .card {
+      border-radius: 15px;
+      overflow: hidden;
+    }
+    .form-control-user {
+      border-radius: 50px !important;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      transition: all 0.3s;
+      border: 1px solid #ddd;
+    }
+    .form-control-user:focus {
+      border-color: #4e73df;
+      box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+    }
+    .btn-user {
+      border-radius: 50px;
+      padding: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+    .btn-user:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .form-title {
+      position: relative;
+      margin-bottom: 2rem;
+      color: #2e59d9;
+    }
+    .form-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background: #4e73df;
+      border-radius: 3px;
+    }
+    .form-divider {
+      margin: 2rem 0;
+      border-top: 1px dashed #ddd;
+    }
+    .login-link {
+      transition: all 0.3s;
+    }
+    .login-link:hover {
+      color: #2e59d9 !important;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-primary">
+
+<div class="container">
+  <div class="card o-hidden border-0 shadow-lg my-5">
+    <div class="card-body p-0">
+      <div class="row">
+        <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+        <div class="col-lg-7">
+          <div class="p-5">
+            <div class="text-center">
+              <h1 class="h3 text-gray-900 mb-4 form-title">Registro de Estudiante</h1>
+            </div>
+
+            <form class="user">
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input type="text" class="form-control form-control-user" id="txtnombre"
+                         placeholder="Nombre" style="background-color: #f8f9fc;">
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control form-control-user" id="txtapellido"
+                         placeholder="Apellido" style="background-color: #f8f9fc;">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <input type="email" class="form-control form-control-user" id="txtemail"
+                       placeholder="Correo Electrónico" style="background-color: #f8f9fc;">
+              </div>
+
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input type="text" class="form-control form-control-user"
+                         id="txttelefono" placeholder="Teléfono" style="background-color: #f8f9fc;">
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control form-control-user"
+                         id="txtidioma" placeholder="Idioma" style="background-color: #f8f9fc;">
+                </div>
+              </div>
+
+              <div class="form-divider"></div>
+
+              <button type="button" onclick="registrarEstudiante()" class="btn btn-primary btn-user btn-block">
+                <i class="fas fa-user-plus mr-2"></i> Registrar Estudiante
+              </button>
+            </form>
+
+            <hr class="my-4">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
+<script src="js/aggregate.js"></script>
+
+</body>
+</html>
