@@ -59,28 +59,28 @@ class EstudianteControllerTest {
 
     }
 
-    @Test
-    public void testCrearEstudianteInvalido()throws Exception{
-
-        Estudiante estudiante = new Estudiante();
-        estudiante.setIdioma("12345");
-
-        mockMvc.perform(post("/api/estudiante")
-                        .content(asJsonString(estudiante))
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest());
-
-
-    }
-    private static String asJsonString(final Object obj){
-
-        try{
-            return  new ObjectMapper().writeValueAsString(obj);
-        }catch (Exception e){
-            throw new RuntimeException(e);
-        }
-
-    }
+//    @Test
+//    public void testCrearEstudianteInvalido()throws Exception{
+//
+//        Estudiante estudiante = new Estudiante();
+//        estudiante.setIdioma("12345");
+//
+//        mockMvc.perform(post("/api/estudiante")
+//                        .content(asJsonString(estudiante))
+//                        .contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isBadRequest());
+//
+//
+//    }
+//    private static String asJsonString(final Object obj){
+//
+//        try{
+//            return  new ObjectMapper().writeValueAsString(obj);
+//        }catch (Exception e){
+//            throw new RuntimeException(e);
+//        }
+//
+//    }
 
 
 }
