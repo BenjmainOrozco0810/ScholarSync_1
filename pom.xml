@@ -127,6 +127,7 @@
 							-Djdk.instrument.traceUsage=false
 							-XX:+EnableDynamicAgentLoading
 						</argLine>
+						<encoding>UTF-8</encoding>
 					</configuration>
 				</plugin>
 			<plugin>
