@@ -5,192 +5,309 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Sistema de autenticación">
-    <meta name="author" content="">
+    <meta name="description" content="Formulario para inicio de sesión en ScholarSync">
 
     <title>Inicio de Sesión | ScholarSync</title>
 
-    <!-- Custom fonts -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- Preconnect para recursos externos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-    <!-- Custom styles -->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- Fuentes modernas -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Estilos personalizados -->
+    <!-- Iconos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
     <style>
-        .bg-login-image {
-            background: url('img/login.jpg') center center no-repeat;
-            background-size: cover;
-            position: relative;
+        :root {
+          --primary: #4361ee;
+          --primary-light: #eef2ff;
+          --secondary: #3f37c9;
+          --dark: #1e1e24;
+          --light: #f8f9fa;
+          --border-radius: 12px;
+          --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+          --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+          --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
         }
-        .bg-login-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(78, 115, 223, 0.7);
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
         }
-        .card {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: none;
+
+        body {
+          font-family: 'Inter', sans-serif;
+          background-color: #f5f7fb;
+          color: var(--dark);
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          padding: 2rem;
         }
-        .form-control-user {
-            border-radius: 50px;
-            padding: 1rem 1.5rem;
-            margin-bottom: 1.5rem;
-            transition: all 0.3s;
-            border: 2px solid #e3e6f0;
-            background-color: #f8f9fc;
+
+        .login-container {
+          max-width: 1000px;
+          width: 100%;
+          margin: 0 auto;
         }
-        .form-control-user:focus {
-            border-color: #4e73df;
-            box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+
+        .login-card {
+          display: flex;
+          background: white;
+          border-radius: var(--border-radius);
+          box-shadow: var(--shadow-lg);
+          overflow: hidden;
+          min-height: 600px;
         }
-        .btn-user {
-            border-radius: 50px;
-            padding: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            text-transform: uppercase;
+
+        .login-image {
+          flex: 1;
+          background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center center no-repeat;
+          background-size: cover;
+          position: relative;
+          display: flex;
+          align-items: flex-end;
+          padding: 2rem;
         }
-        .btn-user:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(78, 115, 223, 0.3);
+
+        .login-image::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(67, 97, 238, 0.85) 0%, rgba(63, 55, 201, 0.85) 100%);
         }
-        .welcome-title {
-            position: relative;
-            margin-bottom: 2.5rem;
-            color: #2e59d9;
-            font-weight: 700;
+
+        .image-content {
+          position: relative;
+          z-index: 1;
+          color: white;
         }
-        .welcome-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: #4e73df;
-            border-radius: 2px;
+
+        .image-content h2 {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+          font-weight: 700;
         }
-        .form-divider {
-            margin: 2rem 0;
-            border-top: 1px dashed #e3e6f0;
+
+        .image-content p {
+          opacity: 0.9;
+          line-height: 1.6;
         }
-        .register-link {
-            transition: all 0.3s;
-            font-weight: 600;
+
+        .login-form {
+          flex: 1;
+          padding: 4rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
         }
-        .register-link:hover {
-            color: #2e59d9 !important;
-            text-decoration: none;
+
+        .form-header {
+          margin-bottom: 3rem;
+          text-align: center;
         }
+
+        .form-header h1 {
+          font-size: 2rem;
+          font-weight: 700;
+          color: var(--dark);
+          margin-bottom: 1rem;
+          position: relative;
+          display: inline-block;
+        }
+
+        .form-header h1::after {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 60px;
+          height: 4px;
+          background: var(--primary);
+          border-radius: 2px;
+        }
+
+        .form-header p {
+          color: #64748b;
+          font-size: 0.95rem;
+        }
+
+        .form-group {
+          margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+          display: block;
+          margin-bottom: 0.5rem;
+          font-weight: 500;
+          color: #334155;
+          font-size: 0.9rem;
+        }
+
+        .form-control {
+          width: 100%;
+          padding: 1rem 1.5rem;
+          border-radius: var(--border-radius);
+          border: 1px solid #e2e8f0;
+          font-size: 1rem;
+          transition: all 0.3s;
+          background-color: #f8fafc;
+        }
+
+        .form-control:focus {
+          outline: none;
+          border-color: var(--primary);
+          box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+          background-color: white;
+        }
+
         .password-container {
-            position: relative;
+          position: relative;
         }
+
         .password-toggle {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: #d1d3e2;
+          position: absolute;
+          right: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+          cursor: pointer;
+          color: #94a3b8;
         }
+
         .password-toggle:hover {
-            color: #4e73df;
+          color: var(--primary);
+        }
+
+        .btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 1rem 2rem;
+          border-radius: var(--border-radius);
+          font-weight: 600;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: all 0.3s;
+          border: none;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        .btn i {
+          margin-right: 0.75rem;
+        }
+
+        .btn-primary {
+          background: var(--primary);
+          color: white;
+          box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+          background: var(--secondary);
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-md);
+        }
+
+        .btn-block {
+          width: 100%;
+        }
+
+        .register-link {
+          text-align: center;
+          margin-top: 2rem;
+          color: #64748b;
+          font-size: 0.95rem;
+        }
+
+        .register-link a {
+          color: var(--primary);
+          text-decoration: none;
+          font-weight: 500;
+          transition: all 0.2s;
+        }
+
+        .register-link a:hover {
+          color: var(--secondary);
+          text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+          .login-card {
+            flex-direction: column;
+            min-height: auto;
+          }
+
+          .login-image {
+            min-height: 300px;
+          }
+
+          .login-form {
+            padding: 2rem;
+          }
+        }
+
+        @media (max-width: 576px) {
+          body {
+            padding: 1rem;
+          }
+
+          .login-form {
+            padding: 1.5rem;
+          }
         }
     </style>
 </head>
 
-<body class="bg-gradient-primary">
-
-<div class="container">
-
-    <!-- Outer Row -->
-    <div class="row justify-content-center">
-
-        <div class="col-xl-6 col-lg-8 col-md-10">
-
-            <div class="card o-hidden border-0 shadow-lg my-5">
-                <div class="card-body p-0">
-                    <!-- Nested Row within Card Body -->
-                    <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                        <div class="col-lg-6">
-                            <div class="p-5">
-                                <div class="text-center">
-                                    <h1 class="h3 mb-4 welcome-title">¡Bienvenido Maestro!</h1>
-                                </div>
-                                <form class="user">
-                                    <div class="form-group">
-                                        <input type="email" class="form-control form-control-user"
-                                               id="txtEmail" aria-describedby="emailHelp"
-                                               placeholder="Correo Electrónico">
-                                    </div>
-                                    <div class="form-group password-container">
-                                        <input type="password" class="form-control form-control-user"
-                                               id="txtpassword" placeholder="Contraseña">
-                                        <i class="fas fa-eye password-toggle" id="togglePassword"></i>
-                                    </div>
-                                    <button type="button" onclick="iniciarSesion()" class="btn btn-primary btn-user btn-block">
-                                        <i class="fas fa-sign-in-alt mr-2"></i> Iniciar Sesión
-                                    </button>
-                                </form>
-                                <div class="form-divider"></div>
-                                <div class="text-center">
-                                    <a class="small register-link" href="registrar.html">
-                                        <i class="fas fa-user-plus mr-1"></i> Crear Nueva Cuenta
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<body>
+<div class="login-container">
+    <div class="login-card">
+        <div class="login-image">
+            <div class="image-content">
+                <h2>Bienvenido a ScholarSync</h2>
             </div>
-
         </div>
 
-    </div>
+        <div class="login-form">
+            <div class="form-header">
+                <h1>Inicio de Sesión</h1>
+                <p>Bienvenidos Maestros</p>
+            </div>
 
+            <form class="user">
+                <div class="form-group">
+                    <label for="txtemail" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="txtemail" placeholder="ejemplo@correo.com">
+                </div>
+
+                <div class="form-group password-container">
+                    <label for="txtpassword" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="txtpassword" placeholder="Ingresa tu contraseña">
+                    <i class="fas fa-eye password-toggle" id="togglePassword"></i>
+                </div>
+
+                <button type="button" onclick="iniciarSesion()" class="btn btn-primary btn-block">
+                    <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                </button>
+            </form>
+
+            <div class="register-link">
+                ¿No tienes una cuenta? <a href="registrar.html">Regístrate aquí</a>
+            </div>
+        </div>
+    </div>
 </div>
 
-<!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
-
-<!-- Script para mostrar/ocultar contraseña -->
-<script>
-    document.getElementById('togglePassword').addEventListener('click', function() {
-        const passwordInput = document.getElementById('txtpassword');
-        const icon = this;
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            icon.classList.remove('fa-eye');
-            icon.classList.add('fa-eye-slash');
-        } else {
-            passwordInput.type = 'password';
-            icon.classList.remove('fa-eye-slash');
-            icon.classList.add('fa-eye');
-        }
-    });
-</script>
-
+<!-- Scripts -->
 <script src="js/login.js"></script>
-
 </body>
-
 </html>

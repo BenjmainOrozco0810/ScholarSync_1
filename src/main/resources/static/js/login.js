@@ -5,7 +5,7 @@ $(document).ready(function() {
 
 async function iniciarSesion(){
   let datos = {};
-  datos.correo = document.getElementById('txtEmail').value;
+  datos.correo = document.getElementById('txtemail').value;
   datos.password = document.getElementById('txtpassword').value;
 
   const request = await fetch('api/login', {

@@ -5,9 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Sistema de gestión académica ScholarSync">
+    <meta name="description" content="Gestión de Estudiantes">
+    <meta name="author" content="">
 
-    <title>Gestión de Estudiantes | ScholarSync</title>
+    <title>ScholarSync | Gestión Estudiantes</title>
 
     <!-- Preconnect para fuentes externas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -139,34 +140,6 @@
             z-index: 50;
         }
 
-        .topbar-search {
-            position: relative;
-            width: 300px;
-        }
-
-        .topbar-search input {
-            width: 100%;
-            padding: 0.5rem 1rem 0.5rem 2.5rem;
-            border-radius: var(--border-radius);
-            border: 1px solid #e2e8f0;
-            font-size: 0.9rem;
-            transition: all 0.2s;
-        }
-
-        .topbar-search input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
-        }
-
-        .topbar-search i {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #94a3b8;
-        }
-
         .user-menu {
             display: flex;
             align-items: center;
@@ -243,61 +216,55 @@
             padding: 1.5rem;
         }
 
-        /* Tabla moderna */
-        .table {
+        /* Formularios */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
             width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-        }
-
-        .table thead th {
-            background: #f8fafc;
-            color: #64748b;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 0.5px;
             padding: 0.75rem 1rem;
-            border-bottom: 1px solid #e2e8f0;
-            text-align: left;
-        }
-
-        .table tbody tr {
+            border-radius: var(--border-radius);
+            border: 1px solid #e2e8f0;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
             transition: all 0.2s;
         }
 
-        .table tbody tr:hover {
-            background: #f8fafc;
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
         }
 
-        .table tbody td {
-            padding: 1rem;
-            border-bottom: 1px solid #f1f5f9;
-            color: #334155;
-            font-size: 0.9rem;
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
         }
 
-        /* Botones de acción */
+        /* Botones */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1.5rem;
             border-radius: var(--border-radius);
             font-weight: 500;
-            font-size: 0.875rem;
+            font-size: 0.95rem;
             cursor: pointer;
             transition: all 0.2s;
             border: none;
         }
 
         .btn i {
-            margin-right: 6px;
+            margin-right: 8px;
         }
 
-        .btn-sm {
-            padding: 0.375rem 0.75rem;
-            font-size: 0.75rem;
+        .btn-block {
+            display: flex;
+            width: 100%;
         }
 
         .btn-primary {
@@ -309,102 +276,34 @@
             background: var(--secondary);
         }
 
-        .btn-outline {
-            background: transparent;
-            border: 1px solid #e2e8f0;
-            color: #64748b;
-        }
-
-        .btn-outline:hover {
-            background: #f8fafc;
-            border-color: #cbd5e1;
-        }
-
-        .btn-danger {
-            background: var(--danger);
+        .btn-success {
+            background: var(--success);
             color: white;
         }
 
-        .btn-danger:hover {
-            background: #d1145a;
+        .btn-success:hover {
+            background: #3aa8d8;
         }
 
-        /* Badges */
-        .badge {
-            display: inline-block;
-            padding: 0.25rem 0.5rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 500;
+        /* Estilos específicos para el contenido */
+        .student-card {
+            border-left: 4px solid var(--primary);
         }
 
-        .badge-success {
-            background: #e6fcf5;
-            color: #0ca678;
-        }
-
-        .badge-warning {
-            background: #fff9db;
-            color: #f59f00;
-        }
-
-        /* Modal moderno */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-        }
-
-        .modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-lg);
-            width: 100%;
-            max-width: 400px;
-            overflow: hidden;
-            transform: translateY(20px);
-            transition: all 0.3s;
-        }
-
-        .modal.active .modal-content {
-            transform: translateY(0);
-        }
-
-        .modal-header {
-            padding: 1.25rem 1.5rem;
-            border-bottom: 1px solid #f1f5f9;
-        }
-
-        .modal-title {
+        .info-label {
             font-weight: 600;
-            font-size: 1.25rem;
+            color: #5a5c69;
+            width: 120px;
         }
 
-        .modal-body {
+        .info-value {
+            color: var(--primary);
+        }
+
+        .editor-section {
+            background: #f8f9fc;
+            border-radius: var(--border-radius);
             padding: 1.5rem;
-        }
-
-        .modal-footer {
-            padding: 1rem 1.5rem;
-            border-top: 1px solid #f1f5f9;
-            display: flex;
-            justify-content: flex-end;
-            gap: 0.75rem;
         }
 
         /* Responsive */
@@ -424,15 +323,15 @@
             .main-content {
                 margin-left: 0;
             }
-
-            .topbar-search {
-                width: 200px;
-            }
         }
 
         @media (max-width: 768px) {
-            .topbar-search {
-                display: none;
+            .page-content {
+                padding: 1.5rem;
+            }
+
+            .card-body {
+                padding: 1rem;
             }
         }
     </style>
@@ -473,17 +372,8 @@
         <button id="sidebarToggle" class="btn btn-outline">
             <i class="fas fa-bars"></i>
         </button>
-
-        <div class="topbar-search">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="Buscar estudiantes...">
-        </div>
-
         <div class="user-menu">
-            <div class="user-info">
-                <div class="user-name">Admin User</div>
-                <div class="user-role">Administrador</div>
-            </div>
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="txt-email-usuario">...</span>
             <img src="https://ui-avatars.com/api/?name=Admin+User&background=4361ee&color=fff" alt="User avatar" class="user-avatar" id="userDropdown">
         </div>
     </header>
@@ -492,55 +382,154 @@
     <main class="page-content">
         <div class="page-header">
             <h1 class="page-title">Gestión de Estudiantes</h1>
-            <p class="page-description">Administra el registro de estudiantes del sistema académico</p>
+            <p class="page-description">Administra los datos de los estudiantes del sistema académico</p>
         </div>
 
-        <!-- Tarjeta de estudiantes -->
-        <section class="card">
-            <div class="card-header">
-                <h2 class="card-title">Listado de Estudiantes</h2>
-                <a href="agregar.html" class="btn btn-primary">
-                    <i class="fas fa-plus"></i> Nuevo Estudiante
-                </a>
-            </div>
-
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table" id="usuarios">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre Completo</th>
-                            <th>Correo</th>
-                            <th>Teléfono</th>
-                            <th>Acciones</th>
-                        </tr>
-                        </thead>
-                    </table>
+        <!-- Contenido -->
+        <div class="row" style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1.5rem;">
+            <!-- Student Info Card -->
+            <div class="col" style="flex: 1; min-width: 300px;">
+                <div class="card shadow student-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Datos del Estudiante</h2>
+                    </div>
+                    <div class="card-body">
+                        <div style="display: flex; margin-bottom: 1rem;">
+                            <div style="flex: 0 0 120px;" class="info-label">Nombre:</div>
+                            <div style="flex: 1;" class="info-value" id="txtnombre"></div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 1rem;">
+                            <div style="flex: 0 0 120px;" class="info-label">Correo:</div>
+                            <div style="flex: 1;" class="info-value" id="txtemail"></div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 1rem;">
+                            <div style="flex: 0 0 120px;" class="info-label">Teléfono:</div>
+                            <div style="flex: 1;" class="info-value" id="txttelefono"></div>
+                        </div>
+                        <div style="display: flex;">
+                            <div style="flex: 0 0 120px;" class="info-label">Idioma:</div>
+                            <div style="flex: 1;" class="info-value" id="txtidioma"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+
+            <!-- Editor Section -->
+            <div class="col" style="flex: 1; min-width: 300px;">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h2 class="card-title">Editor Completo</h2>
+                    </div>
+                    <div class="card-body editor-section">
+                        <form id="studentForm">
+                            <div class="form-group">
+                                <label for="nombre">Nombre completo</label>
+                                <input type="text" class="form-control" id="nombre" required maxlength="255">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="correo">Correo electrónico</label>
+                                <input type="email" class="form-control" id="correo" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="telefono">Teléfono (10 dígitos)</label>
+                                <input type="tel" class="form-control" id="telefono" pattern="\d{10}" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="idioma">Idioma</label>
+                                <select class="form-control" id="idioma" required>
+                                    <option value="">Seleccione...</option>
+                                    <option value="español">Español</option>
+                                    <option value="ingles">Inglés</option>
+                                    <option value="frances">Francés</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-save"></i> Guardar Cambios
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Editor Contacto -->
+        <div class="row" style="max-width: 600px;">
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h2 class="card-title">Editor de Contacto</h2>
+                    </div>
+                    <div class="card-body editor-section">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="correoContacto">Correo electrónico</label>
+                                <input type="email" class="form-control" id="correoContacto" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="telefonoContacto">Teléfono (10 dígitos)</label>
+                                <input type="tel" class="form-control" id="telefonoContacto" pattern="\d{10}" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-success btn-block">
+                                <i class="fas fa-sync-alt"></i> Actualizar Contacto
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 </div>
 
-<!-- Modal de cierre de sesión -->
-<div class="modal" id="logoutModal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3 class="modal-title">Cerrar sesión</h3>
-            <button class="close">&times;</button>
-        </div>
-        <div class="modal-body">
-            <p>¿Estás seguro que deseas cerrar tu sesión actual?</p>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-outline" id="cancelLogout">Cancelar</button>
-            <a href="login.html" class="btn btn-primary">Cerrar sesión</a>
-        </div>
-    </div>
-</div>
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Scripts -->
-<script src="js/students.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
+<script src="js/actuaizar.js"></script>
+
+<!-- Page level plugins -->
+<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script>
+    // Validación del formulario
+    $(document).ready(function() {
+        $('#studentForm').submit(function(e) {
+            e.preventDefault();
+
+            // Validación adicional del teléfono
+            const telefono = $('#telefono').val();
+            if (!/^\d{10}$/.test(telefono)) {
+                alert('El teléfono debe tener exactamente 10 dígitos numéricos');
+                return;
+            }
+
+            alert('Estudiante actualizado con éxito');
+            // Aquí iría tu lógica AJAX para enviar los datos al servidor
+        });
+
+        // Validación en tiempo real para teléfono (solo números)
+        $('#telefono, #telefonoContacto').on('input', function() {
+            this.value = this.value.replace(/\D/g, '');
+        });
+
+        // Toggle sidebar
+        $('#sidebarToggle').click(function() {
+            $('.sidebar').toggleClass('active');
+        });
+    });
+</script>
+
 </body>
 </html>
