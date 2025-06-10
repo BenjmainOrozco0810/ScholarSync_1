@@ -1,6 +1,5 @@
 package com.ScholarSync.ScholarSync.repositorio;
 
-import com.ScholarSync.ScholarSync.entity.Estudiante;
 import com.ScholarSync.ScholarSync.entity.Maestro;
 
 import java.util.List;

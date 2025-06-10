@@ -15,7 +15,7 @@ import java.util.List;
 public class MaestroDaoImp implements MaestroDao {
 
     @PersistenceContext
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
 
     @Override

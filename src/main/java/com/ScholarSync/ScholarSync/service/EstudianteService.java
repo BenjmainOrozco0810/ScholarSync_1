@@ -28,14 +28,11 @@ public class EstudianteService {
 
     }
 
-    // 2. Obtener todos los estudiantes
     public List<Estudiante> getEstudiante() {
         return estudianteRepository.findAll();
     }
 
 
-
-    // 5. Eliminar estudiante
     @Transactional
     public void eliminarEstudiante(Long id) {
         if (!estudianteRepository.existsById(id)) {

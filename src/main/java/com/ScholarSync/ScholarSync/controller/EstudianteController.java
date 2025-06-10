@@ -33,7 +33,7 @@ public class EstudianteController {
 
     }
 
-    private boolean validarToken(String token){
+    public boolean validarToken(String token){
         String maestorId = jwtUtils.getKey(token);
         return maestorId != null;
     }
@@ -49,11 +49,6 @@ public class EstudianteController {
         if (!validarToken(token)){return;}
         estudianteService.eliminarEstudiante(id);
     }
-    @RequestMapping(value = "api/estudiante/{id}",method = RequestMethod.PUT)
-    public void Actualizar(@RequestHeader(value = "Authorization") String token,@PathVariable Long id){
-        if (!validarToken(token)){return;}
-        //estudianteService.actualizarEstudiante(id);
-    }
     @GetMapping("/api/estudiantes/{id}")
     public ResponseEntity<Estudiante> getEstudiante(@PathVariable Long id) {
         Estudiante estudiante = estudianteRepository.findById(id)
@@ -61,11 +56,10 @@ public class EstudianteController {
         return ResponseEntity.ok(estudiante);
     }
     @PutMapping("/api/estudiantes/{id}")
-    public ResponseEntity<Estudiante> updateEstudiante(@PathVariable Long id, @RequestBody Estudiante estudianteDetails) {
+    public ResponseEntity<Estudiante> actualizarEstudiante(@PathVariable Long id, @RequestBody Estudiante estudianteDetails) {
         Estudiante estudiante = estudianteRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Estudiante no encontrado"));
 
-        // Actualizar campos
         estudiante.setNombre(estudianteDetails.getNombre());
         estudiante.setCorreo(estudianteDetails.getCorreo());
         estudiante.setTelefono(estudianteDetails.getTelefono());
@@ -75,7 +69,7 @@ public class EstudianteController {
         return ResponseEntity.ok(updatedEstudiante);
     }
     @PatchMapping("/api/estudiantes/{id}/contacto")
-    public ResponseEntity<Estudiante> updateContacto(@PathVariable Long id, @RequestBody Map<String, String> updates) {
+    public ResponseEntity<Estudiante> actualizarContacto(@PathVariable Long id, @RequestBody Map<String, String> updates) {
         Estudiante estudiante = estudianteRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Estudiante no encontrado"));
 

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MaestroController {
 
     @Autowired
-    MaestroDao maestroDao;
+    private MaestroDao maestroDao;
 
     @RequestMapping(value = "api/maestro", method = RequestMethod.POST)
     public void registrarMaestro(@RequestBody Maestro maestro) {
